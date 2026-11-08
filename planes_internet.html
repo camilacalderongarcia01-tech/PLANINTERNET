@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes de Internet</title>
+</head>
+
+<body style="background-color: #dbeafe; text-align: center; font-family: 'Segoe UI', Arial, sans-serif;">
+    <h1 style="color: #1e3a8a;"> PLANES DE INTERNET </h1>
+    <script>
+        let Nombre = prompt("Digite el Nombre del cliente")
+        let Plan = parseInt(prompt("Tipo de plan: 1 = Basico (10 Mbps), 2 = Estandar (50 Mbps), 3 = Premium (100 Mbps)"))
+        let Meses = parseInt(prompt("Digite el numero de meses a contratar"))
+
+        let NombrePlan = ""
+        let ValorMensual = 0
+        let Descuento = 0
+
+        switch (Plan) {
+            case 1:
+                NombrePlan = "Basico (10 Mbps)"
+                ValorMensual = 40000
+                break
+            case 2:
+                NombrePlan = "Estandar (50 Mbps)"
+                ValorMensual = 70000
+                break
+            case 3:
+                NombrePlan = "Premium (100 Mbps)"
+                ValorMensual = 100000
+                break
+            default:
+                NombrePlan = "Plan no valido"
+        }
+
+        let Total = ValorMensual * Meses
+
+        if (Meses >= 12) {
+            Descuento = 20
+        }
+        else if (Meses >= 6) {
+            Descuento = 10
+        }
+
+        Total = Total - (Total * Descuento / 100)
+
+        document.write("<p>Cliente: " + Nombre + "</p>")
+        document.write("<p>Plan: " + NombrePlan + "</p>")
+        document.write("<p>Valor mensual: $" + ValorMensual + "</p>")
+        document.write("<p>Meses contratados: " + Meses + "</p>")
+
+        if (Descuento > 0) {
+            document.write("<p style='color: green; font-weight: bold;'>Descuento aplicado: " + Descuento + "%</p>")
+        }
+        else {
+            document.write("<p>Descuento aplicado: 0%</p>")
+        }
+
+        document.write("<h2 style='color: #1e3a8a;'>Total a pagar: $" + Total + "</h2>")
+    </script>
+</body>
+</html>
